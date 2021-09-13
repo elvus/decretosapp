@@ -25,7 +25,9 @@ const DatatablePage = () => {
       accessor: 'fecha',
       Cell:({ cell }) => (
         <span>
-          { isNaN(cell.row.values.fecha.$date) ? cell.row.values.fecha : new Date(cell.row.values.fecha.$date).toLocaleDateString("en-US") }
+          { 
+            isNaN(cell.row.values.fecha.$date) ? cell.row.values.fecha : new Date(new Date(cell.row.values.fecha.$date).setDate(new Date(cell.row.values.fecha.$date).getDate()+1)).toLocaleDateString('en-GB') 
+          }
         </span>
       )
     },
