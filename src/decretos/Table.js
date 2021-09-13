@@ -23,6 +23,11 @@ const DatatablePage = () => {
     {
       Header: 'Fecha',
       accessor: 'fecha',
+      Cell:({ cell }) => (
+        <span>
+          { isNaN(cell.row.values.fecha.$date) ? cell.row.values.fecha : new Date(cell.row.values.fecha.$date).toLocaleDateString("en-US") }
+        </span>
+      )
     },
     {
       Header: 'Decreto',
